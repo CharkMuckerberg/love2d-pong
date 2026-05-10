@@ -108,7 +108,7 @@ function love.update()
 
     if ball.x < 0 then
         PLAYER_2_SCORE = PLAYER_2_SCORE + 1
-        ball.x, ball.y, ball.dx, ball.y = get_initial_ball_position_and_velocity()
+        ball.x, ball.y, ball.dx, ball.dy = get_initial_ball_position_and_velocity()
         PAUSED = true
         paddle_1.y = STARTING_PADDLE_Y
         paddle_2.y = STARTING_PADDLE_Y
