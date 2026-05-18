@@ -5,7 +5,7 @@ function love.load()
     fonts.large = love.graphics.newFont("assets/fonts/VT323-Regular.ttf", 72)
     bounceSound = love.audio.newSource("assets/sounds/paddle_impact.ogg", "static")
     love.graphics.setBackgroundColor(0.6549019607843137, 0.592156862745098, 0.4588235294117647)
-    MOVEMENT = 6
+    MOVEMENT = 8
     WINDOW_WIDTH = love.graphics.getWidth()
     WINDOW_HEIGHT = love.graphics.getHeight()
     PADDLE_WIDTH = 10
