@@ -39,6 +39,16 @@ function playBounceSound()
     bounceSound:play()
 end
 
+function movePlayer(player, direction)
+    if direction == "up" then
+        return player.y - MOVEMENT
+    end
+    if direction == "down" then
+        return player.y + MOVEMENT
+    end
+    return player.y
+end
+
 function love.update()
     -- Handle user input
     if PAUSED then
@@ -49,19 +59,8 @@ function love.update()
     end
     user_1_direction = get_user_input(1)
     user_2_direction = get_user_input(2)
-    if user_1_direction == "up" then
-        paddle_1.y = paddle_1.y - MOVEMENT
-    end
-    if user_1_direction == "down" then
-        paddle_1.y = paddle_1.y + MOVEMENT
-    end
-    if user_2_direction == "up" then
-        paddle_2.y = paddle_2.y - MOVEMENT
-    end
-    if user_2_direction == "down" then
-        paddle_2.y = paddle_2.y + MOVEMENT
-    end
-
+    paddle_1.y = movePlayer(paddle_1, user_1_direction)
+    paddle_2.y = movePlayer(paddle_2, user_2_direction)
     -- Ensure paddles stay in bounds
     paddle_1.y = clamp(paddle_1.y, 0, WINDOW_HEIGHT - PADDLE_HEIGHT)
     paddle_2.y = clamp(paddle_2.y, 0, WINDOW_HEIGHT - PADDLE_HEIGHT)
